@@ -1,23 +1,14 @@
-# Created by https://www.toptal.com/developers/gitignore/api/xcode
-# Edit at https://www.toptal.com/developers/gitignore?templates=xcode
+# Created by https://www.toptal.com/developers/gitignore/api/swiftpm
+# Edit at https://www.toptal.com/developers/gitignore?templates=swiftpm
 
-### Xcode ###
-## User settings
-xcuserdata/
+### SwiftPM ###
+Packages
+.build/
+xcuserdata
+DerivedData/
+*.xcodeproj
 
-## Xcode 8 and earlier
-*.xcscmblueprint
-*.xccheckout
 
-### Xcode Patch ###
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcodeproj/project.xcworkspace/
-!*.xcworkspace/contents.xcworkspacedata
-/*.gcno
-**/xcshareddata/WorkspaceSettings.xcsettings
-
+# End of https://www.toptal.com/developers/gitignore/api/swiftpm
 *.DS_Store
-# End of https://www.toptal.com/developers/gitignore/api/xcode
 
