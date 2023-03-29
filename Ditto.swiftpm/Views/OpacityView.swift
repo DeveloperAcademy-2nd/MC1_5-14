@@ -7,14 +7,9 @@
 
 import SwiftUI
 
-struct OpacityView: View {
-  var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-  }
-}
-
-struct OpacityView_Previews: PreviewProvider {
-  static var previews: some View {
-    OpacityView()
+@ViewBuilder
+func makeOpacityView(hex: UInt, opacity: Double) -> some View {
+  ZStack {
+    Color.init(hex: hex, alpha: opacity)
   }
 }
