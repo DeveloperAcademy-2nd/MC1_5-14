@@ -16,8 +16,7 @@ struct StartButton: View {
             .padding(.horizontal, 34)
             .padding(.vertical, 14)
             .foregroundColor(.white)
-            .background(.red)
-            .opacity(0.7)
+            .background(.red.opacity(0.7))
             .cornerRadius(90)
         }
         .frame(maxHeight: .infinity, alignment: .bottom)
