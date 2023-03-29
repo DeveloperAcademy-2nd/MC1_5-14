@@ -9,12 +9,18 @@ import SwiftUI
 
 struct Scene01_ClubRoom: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct Scene01_ClubRoom_Previews: PreviewProvider {
-    static var previews: some View {
-      Scene01_ClubRoom()
+      ZStack {
+        Image("ClubRoom")
+          .resizable()
+          .edgesIgnoringSafeArea(.all)
+        VStack {
+          Spacer().frame(height: 162)
+          makeOpacityView(hex: 0x322725, opacity: 0.85)
+          Spacer().frame(height: 162)
+        }
+        Text("정보 설명")
+          .foregroundColor(.white)
+          .font(.system(size: 40))
+      }
     }
 }

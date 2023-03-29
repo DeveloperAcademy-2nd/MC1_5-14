@@ -4,7 +4,7 @@ import SwiftUI
 struct Ditto: App {
     var body: some Scene {
         WindowGroup {
-          Scene00_Intro()
+          Scene01_ClubRoom()
         }
     }
 }
