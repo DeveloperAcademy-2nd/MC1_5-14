@@ -9,6 +9,11 @@ import SwiftUI
 
 struct Scene00_Intro: View {
     var body: some View {
-      StartButton()
+      ZStack {
+        Image("Ditto")
+          .resizable()
+          .edgesIgnoringSafeArea(.all)
+        StartButton()
+      }
     }
 }
