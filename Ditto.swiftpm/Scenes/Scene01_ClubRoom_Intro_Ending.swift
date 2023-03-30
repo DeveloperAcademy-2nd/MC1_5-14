@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Scene01_ClubRoom_Intro_Ending: View {
   @EnvironmentObject var data: Data
-//  @Environment(\.endingState) var endingState: Bool
   @State var transitionView: Bool = false
   var body: some View {
     NavigationView {

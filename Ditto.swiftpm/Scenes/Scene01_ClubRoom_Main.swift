@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Scene01_ClubRoom_Main: View {
-  @Environment(\.endingState) var endingState: Bool
   @State var itemScreenVisiblities: [Bool] = [false, false, false, false]
   @State var episodeStage: [Int] = [2, 0, 1, 3] // 순서대로 누를 동그라미들
   @EnvironmentObject var data: Data
