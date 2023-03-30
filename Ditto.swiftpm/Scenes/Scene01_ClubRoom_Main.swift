@@ -24,6 +24,7 @@ struct Scene01_ClubRoom_Main: View { // 동그라미 순서: 2, 0, 1, 3
               itemScreenVisiblities[screenNum].toggle()
               data.buttondisabled[0] = -1
               data.buttondisabled[1] = 1
+              data.presentEpisode = 2
             }, label: {
               switch(data.buttondisabled[0]) {
               case 0:
@@ -45,6 +46,7 @@ struct Scene01_ClubRoom_Main: View { // 동그라미 순서: 2, 0, 1, 3
               itemScreenVisiblities[screenNum].toggle()
               data.buttondisabled[1] = -1
               data.buttondisabled[3] = 1
+              data.presentEpisode = 3
             }, label: {
               switch(data.buttondisabled[1]) {
               case 0:
@@ -67,6 +69,7 @@ struct Scene01_ClubRoom_Main: View { // 동그라미 순서: 2, 0, 1, 3
                 itemScreenVisiblities[screenNum].toggle()
                 data.buttondisabled[2] = -1
                 data.buttondisabled[0] = 1
+                data.presentEpisode = 1
               }, label: {
                 switch(data.buttondisabled[2]) {
                 case 0:
@@ -88,6 +91,7 @@ struct Scene01_ClubRoom_Main: View { // 동그라미 순서: 2, 0, 1, 3
                 screenNum = 3
                 itemScreenVisiblities[screenNum].toggle()
                 data.buttondisabled[3] = -1
+                data.presentEpisode = 4
                 data.endingState = true
               }, label: {
                 switch(data.buttondisabled[3]) {
