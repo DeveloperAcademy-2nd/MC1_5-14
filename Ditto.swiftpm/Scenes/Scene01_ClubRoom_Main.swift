@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Scene01_ClubRoom_Main: View {
   @Environment(\.endingState) var endingState: Bool
+  @State var itemScreenVisiblities: [Bool] = [false, false, false, false]
+  @State var screenNum: Int = 0
     var body: some View {
       NavigationView {
         ZStack {
@@ -17,45 +19,49 @@ struct Scene01_ClubRoom_Main: View {
             .edgesIgnoringSafeArea(.all)
           HStack {
             VStack {
-              NavigationLink(destination: makeItemView(item: "AppleFourCut", width: 274, height: 197)
-              ) {
                 SelectingPointingView()
                   .frame(maxHeight: .infinity, alignment: .bottom)
-              }
+                  .onTapGesture {
+                    screenNum = 0
+                    itemScreenVisiblities[screenNum].toggle()
+                  }
               Spacer().frame(height: 240)
             }.frame(maxWidth: .infinity, alignment: .center)
             VStack {
-              NavigationLink(destination: { NavigationLink(destination: makeEpisodeView(epNum: 1, title: "Once apon a time")){
-                makeItemView(item: "AppleFourCut", width: 274, height: 197) }
-              }
-              ) {
                 SelectingPointingView()
                   .frame(maxHeight: .infinity, alignment: .bottom)
-              }
+                  .onTapGesture {
+                    screenNum = 1
+                    itemScreenVisiblities[screenNum].toggle()
+                  }
               Spacer().frame(height: 135)
             }.frame(maxWidth: .infinity, alignment: .center)
             HStack {
               VStack {
-                NavigationLink(destination: makeItemView(item: "AppleFourCut", width: 274, height: 197)
-                ) {
                   SelectingPointingView()
                     .frame(maxHeight: .infinity, alignment: .bottomLeading)
-                }
+                    .onTapGesture {
+                      screenNum = 2
+                      itemScreenVisiblities[screenNum].toggle()
+                    }
                 Spacer().frame(height: 120)
               }
               Spacer().frame(width: 80)
               VStack {
-                NavigationLink(destination: makeItemView(item: "AppleFourCut", width: 274, height: 197)
-                ) {
                   SelectingPointingView()
                     .frame(maxHeight: .infinity, alignment: .bottom)
-                }
+                    .onTapGesture {
+                      screenNum = 3
+                      itemScreenVisiblities[screenNum].toggle()
+                    }
                 Spacer().frame(height: 265)
               }
             }.frame(maxWidth: .infinity, alignment: .center)
             VStack {
             }.frame(maxWidth: .infinity, alignment: .center)
           }
+            makeItemView(itemNum: screenNum, width: 274, height: 197)
+              .opacity(itemScreenVisiblities[screenNum] ? 1 : 0)
         }
       }
     }

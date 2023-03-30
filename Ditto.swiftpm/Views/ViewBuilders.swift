@@ -15,36 +15,42 @@ func makeOpacityView(hex: UInt, opacity: Double) -> some View {
 }
 
 @ViewBuilder
-func makeItemView(item: String, width: CGFloat, height: CGFloat) -> some View {
-  ZStack {
-    Image("ClubRoom")
-      .resizable()
-      .edgesIgnoringSafeArea(.all)
-    VStack {
-      Spacer().frame(height: 141)
-      makeOpacityView(hex: 0x433A3A, opacity: 0.85)
+func makeItemView(itemNum: Int, width: CGFloat, height: CGFloat) -> some View {
+  let items = ["AppleFourCut","AppleFourCut","AppleFourCut","AppleFourCut"]
+  NavigationView {
+    NavigationLink(destination: makeEpisodeView(epNum: itemNum)) {
+      ZStack {
+        Image("ClubRoom")
+          .resizable()
+          .edgesIgnoringSafeArea(.all)
+        VStack {
+          Spacer().frame(height: 141)
+          makeOpacityView(hex: 0x433A3A, opacity: 0.85)
+        }
+        VStack {
+          Spacer().frame(height: 30)
+          Image(items[itemNum])
+            .resizable()
+            .frame(width: width, height: height)
+            .frame(maxHeight: .infinity, alignment: .top)
+        }
+      }.navigationBarBackButtonHidden(false)
     }
-    VStack {
-      Spacer().frame(height: 30)
-      Image(item)
-        .resizable()
-        .frame(width: width, height: height)
-        .frame(maxHeight: .infinity, alignment: .top)
-    }
-  }.navigationBarBackButtonHidden(false)
+  }
 }
 
 @ViewBuilder
-func makeEpisodeView(epNum: Int, title: String) -> some View {
+func makeEpisodeView(epNum: Int) -> some View {
+  let titles = ["마스크", "포스트잇", "애플네컷", "야호"]
   ZStack {
     Image("ClubRoom")
       .resizable()
       .edgesIgnoringSafeArea(.all)
     makeOpacityView(hex: 0x636363, opacity: 0.5)
     VStack {
-      Text("ep." + String(epNum))
+      Text("ep." + String(epNum + 1))
         .font(.system(size: 30))
-      Text(title)
+      Text(titles[epNum])
         .font(.system(size: 70))
     }
   }.navigationBarBackButtonHidden(true)
