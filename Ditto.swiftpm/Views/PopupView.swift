@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Popup<Content: View>: View {
+    
+    @EnvironmentObject var data: Data
     let content: Content
     @Binding var isPresented: Bool
     let hasSubPupup: Bool
@@ -53,6 +55,7 @@ struct Popup<Content: View>: View {
                             isPresented = false
                             firstParent = false
                         }
+                        data.showingBook = false
                     }, label: {
                         Text("Close")
                             .foregroundColor(.white)

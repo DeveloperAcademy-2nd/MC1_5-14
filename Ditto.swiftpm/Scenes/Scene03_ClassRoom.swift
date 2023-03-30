@@ -35,7 +35,9 @@ struct Scene03_ClassRoom: View {
           }
           Spacer().frame(height: 17)
         }
-      }
+      }.onAppear(perform:{
+          data.showingBook = true
+      })
     }
   }
 }

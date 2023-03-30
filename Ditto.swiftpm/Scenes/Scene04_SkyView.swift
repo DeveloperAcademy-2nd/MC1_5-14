@@ -35,7 +35,9 @@ struct Scene04_SkyView: View {
           }
           Spacer().frame(height: 17)
         }
-      }
+      }.onAppear(perform:{
+          data.showingBook = true
+      })
     }
   }
 }

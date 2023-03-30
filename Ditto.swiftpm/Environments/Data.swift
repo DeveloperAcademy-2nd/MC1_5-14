@@ -11,4 +11,5 @@ public class Data: ObservableObject {
   @Published public var endingState: Bool = false
   @Published public var buttondisabled: [Int] = [0, 0, 1, 0]
   @Published public var presentEpisode: Int = 0
+  @Published public var showingBook: Bool = false
 }

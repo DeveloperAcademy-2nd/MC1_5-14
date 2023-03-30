@@ -36,7 +36,9 @@ struct Scene05_NightOcean: View {
           }
           Spacer().frame(height: 17)
         }
-      }
+      }.onAppear(perform:{
+          data.showingBook = true
+      })
     }
   }
 }

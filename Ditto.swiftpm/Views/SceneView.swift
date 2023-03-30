@@ -31,10 +31,6 @@ struct SceneView: View {
                         Scene01_Content(isHiding:$isHiding)
                                 .isHidden(isHiding[1])
                     }
-                    NavigationLink(destination:
-                                    Scene02_HallWay()){
-                        Scene02_Content(isHiding:$isHiding)
-                    }
                 }
             }
         }
