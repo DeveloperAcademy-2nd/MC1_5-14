@@ -9,7 +9,15 @@ import SwiftUI
 
 struct Scene08_ClubRoom_Ending: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      ZStack {
+        Image("ClubRoom")
+          .resizable()
+          .edgesIgnoringSafeArea(.all)
+        VStack {
+          Spacer().frame(height: 14)
+          makeOpacityView(hex: 0x32272B, opacity: 0.85)
+        }
+      }
     }
 }
 
