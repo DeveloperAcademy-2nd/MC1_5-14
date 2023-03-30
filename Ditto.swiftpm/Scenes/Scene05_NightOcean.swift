@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Scene05_NightOcean: View {
+  @EnvironmentObject var data: Data
   var body: some View {
     ZStack {
         Image("Background_ep4")
@@ -16,7 +17,9 @@ struct Scene05_NightOcean: View {
       VStack {
         HStack {
           Spacer().frame(width: 600)
-          Button(action: {}, label: {
+          Button(action: {
+            data.endingState = true
+          }, label: {
             Image("Button_NightOcean")
               .resizable()
               .frame(width: 36, height: 36)

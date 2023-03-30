@@ -50,6 +50,7 @@ func makeEpisodeView(epNum: Int, data: Data) -> some View {
       Scene02_Hallway().navigationBarBackButtonHidden(true)
     case 3:
       Scene05_NightOcean().navigationBarBackButtonHidden(true)
+        .environmentObject(data)
     default: // 0
       Scene03_ClassRoom().navigationBarBackButtonHidden(true)
     }

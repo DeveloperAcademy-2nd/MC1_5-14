@@ -92,7 +92,7 @@ struct Scene01_ClubRoom_Main: View { // 동그라미 순서: 2, 0, 1, 3
                 itemScreenVisiblities[screenNum].toggle()
                 data.buttondisabled[3] = -1
                 data.presentEpisode = 4
-                data.endingState = true
+//                data.endingState = true
               }, label: {
                 switch(data.buttondisabled[3]) {
                 case 0:
