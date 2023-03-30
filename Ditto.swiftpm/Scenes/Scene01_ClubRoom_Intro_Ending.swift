@@ -27,13 +27,22 @@ struct Scene01_ClubRoom_Intro_Ending: View {
           }
           if data.endingState {
             NavigationLink(destination: Scene00_Intro()) {
-              Text("엔딩 보러가기")
-                .font(.system(size: 36))
-                .padding(.horizontal, 21)
-                .padding(.vertical, 14)
-                .foregroundColor(.white)
-                .background(Color.init(hex: 0x8E7C72))
-                .cornerRadius(90)
+              Button(action: {
+                transitionView = false
+              }, label: {
+                ZStack {
+                  Text("                            ")
+                    .font(.system(size: 36))
+                    .padding(.horizontal, 21)
+                    .padding(.vertical, 14)
+                    .foregroundColor(.white)
+                    .background(Color.init(hex: 0x8E7C72))
+                    .cornerRadius(90)
+                  Image("EndingText")
+                    .resizable()
+                    .frame(width: 179, height: 36)
+                }
+              })
             }
           } else {
             NavigationLink(destination: Scene01_ClubRoom_Main()
