@@ -16,7 +16,7 @@ func makeOpacityView(hex: UInt, opacity: Double) -> some View {
 
 @ViewBuilder
 func makeItemView(itemNum: Int, width: CGFloat, height: CGFloat, data: Data ) -> some View {
-  let items = ["AppleFourCut","AppleFourCut","AppleFourCut","AppleFourCut"]
+  let items = ["Item_PostIt","Item_Dotjari","Item_Mask","Item_AppleFourCut"]
   NavigationView {
     NavigationLink(destination: makeEpisodeView(epNum: itemNum, data: data)) {
       ZStack {
@@ -31,7 +31,7 @@ func makeItemView(itemNum: Int, width: CGFloat, height: CGFloat, data: Data ) ->
           Spacer().frame(height: 30)
           Image(items[itemNum])
             .resizable()
-            .frame(width: width, height: height)
+            .frame(width: 365, height: 280)
             .frame(maxHeight: .infinity, alignment: .top)
         }
       }.navigationBarBackButtonHidden(false)
@@ -41,7 +41,7 @@ func makeItemView(itemNum: Int, width: CGFloat, height: CGFloat, data: Data ) ->
 
 @ViewBuilder
 func makeEpisodeView(epNum: Int, data: Data) -> some View {
-  let titles = ["마스크", "포스트잇", "애플네컷", "야호"]
+  let titles = [Image("Title_Episode2").resizable().frame(width: 253, height: 138), Image("Title_Episode3").resizable().frame(width: 371, height: 138), Image("Title_Episode1").resizable().frame(width: 405, height: 126), Image("Title_Episode4").resizable().frame(width: 270, height: 138)]
   NavigationView() {
     NavigationLink(destination: Scene01_ClubRoom_Main()) {
       ZStack {
@@ -50,10 +50,7 @@ func makeEpisodeView(epNum: Int, data: Data) -> some View {
           .edgesIgnoringSafeArea(.all)
         makeOpacityView(hex: 0x636363, opacity: 0.5)
         VStack {
-          Text("ep." + String(epNum + 1))
-            .font(.system(size: 30))
-          Text(titles[epNum])
-            .font(.system(size: 70))
+          titles[epNum]
         }
       }.navigationBarBackButtonHidden(true)
     }
