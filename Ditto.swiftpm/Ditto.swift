@@ -4,7 +4,7 @@ import SwiftUI
 struct Ditto: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Scene00_Intro()
         }
     }
 }
