@@ -41,7 +41,8 @@ struct ContentView: View {
                               isLastPopup: true,
                               firstParent:$isPopupPresented
                         ) {
-                            AnimatedImagesView()
+                            AnimatedImagesView(picture: "picture01", dialogs: ["dialog01", "dialog02", "dialog03"], positions: [[-45,42],[15,-10]]
+                            )
                         }
                         .edgesIgnoringSafeArea(.all)
                     }
