@@ -17,7 +17,6 @@ struct Scene01_ClubRoom_Main: View {
           HStack {
             VStack {
               NavigationLink(destination: makeItemView(item: "AppleFourCut", width: 274, height: 197)
-//                .navigationBarBackButtonHidden(true)
               ) {
                 SelectingPointingView()
                   .frame(maxHeight: .infinity, alignment: .bottom)
@@ -25,10 +24,9 @@ struct Scene01_ClubRoom_Main: View {
               Spacer().frame(height: 240)
             }.frame(maxWidth: .infinity, alignment: .center)
             VStack {
-              NavigationLink(destination: { NavigationLink(destination: makeEpisodeView(title: "ep1. Once apon a time")){
+              NavigationLink(destination: { NavigationLink(destination: makeEpisodeView(epNum: 1, title: "Once apon a time")){
                 makeItemView(item: "AppleFourCut", width: 274, height: 197) }
-                                                           }
-//                .navigationBarBackButtonHidden(true)
+              }
               ) {
                 SelectingPointingView()
                   .frame(maxHeight: .infinity, alignment: .bottom)
@@ -38,7 +36,6 @@ struct Scene01_ClubRoom_Main: View {
             HStack {
               VStack {
                 NavigationLink(destination: makeItemView(item: "AppleFourCut", width: 274, height: 197)
-//                  .navigationBarBackButtonHidden(true)
                 ) {
                   SelectingPointingView()
                     .frame(maxHeight: .infinity, alignment: .bottomLeading)
@@ -48,7 +45,6 @@ struct Scene01_ClubRoom_Main: View {
               Spacer().frame(width: 80)
               VStack {
                 NavigationLink(destination: makeItemView(item: "AppleFourCut", width: 274, height: 197)
-//                  .navigationBarBackButtonHidden(true)
                 ) {
                   SelectingPointingView()
                     .frame(maxHeight: .infinity, alignment: .bottom)

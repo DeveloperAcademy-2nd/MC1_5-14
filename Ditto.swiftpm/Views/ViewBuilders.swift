@@ -31,17 +31,21 @@ func makeItemView(item: String, width: CGFloat, height: CGFloat) -> some View {
         .frame(width: width, height: height)
         .frame(maxHeight: .infinity, alignment: .top)
     }
-  }
+  }.navigationBarBackButtonHidden(false)
 }
 
 @ViewBuilder
-func makeEpisodeView(title: String) -> some View {
+func makeEpisodeView(epNum: Int, title: String) -> some View {
   ZStack {
     Image("ClubRoom")
       .resizable()
       .edgesIgnoringSafeArea(.all)
     makeOpacityView(hex: 0x636363, opacity: 0.5)
-    Text(title)
-      .font(.system(size: 70))
-  }
+    VStack {
+      Text("ep." + String(epNum))
+        .font(.system(size: 30))
+      Text(title)
+        .font(.system(size: 70))
+    }
+  }.navigationBarBackButtonHidden(true)
 }
