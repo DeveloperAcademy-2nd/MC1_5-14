@@ -17,6 +17,9 @@ struct Scene01_ClubRoom_Main: View {
             VStack {
               SelectingPointingView()
                 .frame(maxHeight: .infinity, alignment: .bottom)
+                .onTapGesture {
+                  
+                }
               Spacer().frame(height: 240)
             }.frame(maxWidth: .infinity, alignment: .center)
             VStack {

@@ -40,9 +40,6 @@ struct Scene01_ClubRoom_Intro: View {
         }
         .opacity(transitionView ? 1.0 : 0.0)
       }
-      .onTapGesture {
-        print("메인으로 네비게이션")
-      }
     }
   }
 }
