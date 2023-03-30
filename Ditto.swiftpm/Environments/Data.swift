@@ -9,5 +9,5 @@ import Foundation
 
 public class Data: ObservableObject {
   @Published public var endingState: Bool = false
-  @Published public var buttondisabled: [Bool] = [false, false, false, false]
+  @Published public var buttondisabled: [Int] = [0, 0, 0, 0]
 }

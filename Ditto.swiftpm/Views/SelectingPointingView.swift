@@ -9,12 +9,28 @@ import SwiftUI
 
 struct SelectingPointingView: View {
   @EnvironmentObject var data: Data
+  @State private var pointingState: PointingState
+  
   enum PointingState {
     case nonGuiding
     case guiding
     case unabled
   }
-  @State private var pointingState: PointingState = .nonGuiding
+
+  init(pointingState: String) {
+    var state: PointingState
+    switch(pointingState) {
+    case "nonGuiding": // 0
+      state = .nonGuiding
+    case "guiding": // 1
+      state = .guiding
+    case "unabled": // -1
+      state = .unabled
+    default:
+      state = .nonGuiding
+    }
+    self.pointingState = state
+  }
   
   var body: some View {
     ZStack {
@@ -43,19 +59,4 @@ struct SelectingPointingView: View {
       }
     }
   }
-//  init(pointingState: String) {
-//    self.pointingState = stringToState(string: pointingState)
-//  }
-//  func stringToState(string: String) -> PointingState {
-//    switch(string) {
-//    case "nonGuiding":
-//      return .nonGuiding
-//    case "guiding":
-//      return .guiding
-//    case "unabled":
-//      return .unabled
-//    default:
-//      return .nonGuiding
-//    }
-//  }
 }
