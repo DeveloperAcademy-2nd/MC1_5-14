@@ -43,7 +43,17 @@ func makeItemView(itemNum: Int, width: CGFloat, height: CGFloat, data: Data ) ->
 func makeEpisodeView(epNum: Int, data: Data) -> some View {
   let titles = [Image("Title_Episode2").resizable().frame(width: 253, height: 138), Image("Title_Episode3").resizable().frame(width: 371, height: 138), Image("Title_Episode1").resizable().frame(width: 405, height: 126), Image("Title_Episode4").resizable().frame(width: 270, height: 138)]
   NavigationView() {
-    NavigationLink(destination: Scene01_ClubRoom_Main()) {
+    NavigationLink(destination: { switch(epNum) {
+    case 1:
+      Scene03_ClassRoom().navigationBarBackButtonHidden(true)
+    case 2:
+      Scene04_SkyView().navigationBarBackButtonHidden(true)
+    case 3:
+      Scene05_NightOcean().navigationBarBackButtonHidden(true)
+    default:
+      Scene02_Hallway().navigationBarBackButtonHidden(true)
+    }
+    }) {
       ZStack {
         Image("ClubRoom")
           .resizable()
