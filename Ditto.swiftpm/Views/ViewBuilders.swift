@@ -80,7 +80,7 @@ func makeEpisodeView(epNum: Int, data: Data) -> some View {
     }
     }) {
       ZStack {
-        Image("ClubRoom")
+        Image("bgClubRoom")
           .resizable()
           .edgesIgnoringSafeArea(.all)
         makeOpacityView(hex: 0x636363, opacity: 0.5)

@@ -20,7 +20,7 @@ struct Scene01_ClubRoom_Main: View { // 동그라미 순서: 2, 0, 1, 3
   var body: some View {
     NavigationView {
       ZStack {
-        Image("ClubRoom")
+        Image("bgClubRoom")
           .resizable()
           .edgesIgnoringSafeArea(.all)
         HStack {

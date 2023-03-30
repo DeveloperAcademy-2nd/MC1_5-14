@@ -11,7 +11,7 @@ struct Scene00_Intro: View {
   var body: some View {
     NavigationView {
       ZStack {
-        Image("Ditto")
+        Image("bgDitto")
           .resizable()
           .edgesIgnoringSafeArea(.all)
           NavigationLink(destination: Scene01_ClubRoom_Intro_Ending()

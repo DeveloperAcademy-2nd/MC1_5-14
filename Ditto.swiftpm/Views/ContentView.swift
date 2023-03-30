@@ -53,13 +53,13 @@ struct ContentView: View {
                                         AnimatedImagesView(picture: "picture02", dialogs: ["dialog10", "dialog11", "dialog12"], positions: [[-40,42],[15,30]]
                                         )
                                     } else if (data.presentEpisode == 3) {
-                                        AnimatedImagesView(picture: "picture03", dialogs: ["dialog20", "dialog21"], positions: [[-40,42],[15,30]]
+                                        AnimatedImagesView(picture: "picture03", dialogs: ["dialog20", "dialog21"], positions: [[-40,42],[15,30],[-5,-35]], doodle: "dialog22"
                                         )
                                     } else if (data.presentEpisode == 4) {
-                                        AnimatedImagesView(picture: "picture04", dialogs: ["dialog30", "dialog31"], positions: [[-40,42],[15,30]]
+                                        AnimatedImagesView(picture: "picture04", dialogs: ["dialog30", "dialog31"], positions: [[-40,42],[15,30],[-65,-40]],  doodle: "dialog32"
                                         )
                                     } else if (data.presentEpisode == 5) {
-                                        AnimatedImagesView(picture: "picture05", dialogs: ["dialog40"], positions: [[-40,42],[15,30]]
+                                        AnimatedImagesView(picture: "picture05", dialogs: ["dialog40"], positions: [[-40,42],[0,30]]
                                         )
                                     }
                                 }

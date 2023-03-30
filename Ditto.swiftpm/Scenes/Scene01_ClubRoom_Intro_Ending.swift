@@ -13,7 +13,7 @@ struct Scene01_ClubRoom_Intro_Ending: View {
   var body: some View {
     NavigationView {
       ZStack {
-        Image("ClubRoom")
+        Image("bgClubRoom")
           .resizable()
           .edgesIgnoringSafeArea(.all)
           .onTapGesture {
