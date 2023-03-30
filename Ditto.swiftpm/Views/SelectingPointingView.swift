@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SelectingPointingView: View {
+  @EnvironmentObject var data: Data
   enum PointingState {
     case nonGuiding
     case guiding
@@ -42,6 +43,19 @@ struct SelectingPointingView: View {
       }
     }
   }
-  func setGuidingState() {
-  }
+//  init(pointingState: String) {
+//    self.pointingState = stringToState(string: pointingState)
+//  }
+//  func stringToState(string: String) -> PointingState {
+//    switch(string) {
+//    case "nonGuiding":
+//      return .nonGuiding
+//    case "guiding":
+//      return .guiding
+//    case "unabled":
+//      return .unabled
+//    default:
+//      return .nonGuiding
+//    }
+//  }
 }

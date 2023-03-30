@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct Scene01_ClubRoom_Intro_Ending: View {
-  @Environment(\.endingState) var endingState: Bool
+  @EnvironmentObject var data: Data
+//  @Environment(\.endingState) var endingState: Bool
   @State var transitionView: Bool = false
   var body: some View {
     NavigationView {
@@ -25,7 +26,7 @@ struct Scene01_ClubRoom_Intro_Ending: View {
             makeOpacityView(hex: 0x322725, opacity: 0.85)
             Spacer().frame(height: 14)
           }
-          if endingState {
+          if data.endingState {
             NavigationLink(destination: Scene00_Intro()) {
               Text("엔딩 보러가기")
                 .font(.system(size: 36))
@@ -36,7 +37,9 @@ struct Scene01_ClubRoom_Intro_Ending: View {
                 .cornerRadius(90)
             }
           } else {
-            NavigationLink(destination: Scene01_ClubRoom_Main().navigationBarBackButtonHidden(true)) {
+            NavigationLink(destination: Scene01_ClubRoom_Main()
+              .environmentObject(data)
+              .navigationBarBackButtonHidden(true)) {
               HStack {
                 Image("IntroNote")
                   .frame(maxWidth: .infinity, alignment: .center)
