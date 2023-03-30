@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct Scene01_ClubRoom_Intro: View {
-  @State var transitionView: Bool = true
+  @State var transitionView: Bool = false
     var body: some View {
       // 터치 이벤트 -> transitionView.toggle()
       ZStack {
         Image("ClubRoom")
           .resizable()
           .edgesIgnoringSafeArea(.all)
+          .onTapGesture {
+            transitionView.toggle()
+          }
         ZStack {
           VStack {
             Spacer().frame(height: 14)
@@ -34,6 +37,9 @@ struct Scene01_ClubRoom_Intro: View {
           }
         }
         .opacity(transitionView ? 1.0 : 0.0)
+      }
+      .onTapGesture {
+        print("메인으로 네비게이션")
       }
     }
 }
