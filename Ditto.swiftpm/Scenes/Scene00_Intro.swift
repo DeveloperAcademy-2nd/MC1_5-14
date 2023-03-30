@@ -9,11 +9,26 @@ import SwiftUI
 
 struct Scene00_Intro: View {
     var body: some View {
+      NavigationView {
       ZStack {
         Image("Ditto")
           .resizable()
           .edgesIgnoringSafeArea(.all)
-        StartButton()
+        NavigationLink(destination: Scene01_ClubRoom_Main()) {
+          ZStack { // START 버튼
+            VStack {
+              Text("START")
+                      .padding(.horizontal, 34)
+                      .padding(.vertical, 14)
+                      .foregroundColor(.white)
+                      .background(Color.init(hex: 0x8DADAB, alpha: 0.7))
+                      .cornerRadius(90)
+                .frame(maxHeight: .infinity, alignment: .bottom)
+              Spacer().frame(height: 33)
+            }
+          }
+        }.navigationBarBackButtonHidden()
+        }
       }
     }
 }
