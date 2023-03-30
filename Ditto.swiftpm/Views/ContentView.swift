@@ -13,11 +13,13 @@ struct ContentView: View {
                 Scene00_Intro()
                 if (data.showingBook) {
                     ZStack{
-                        Button("Show Popup") {
-                            withAnimation(.linear(duration: 0.3)){
-                                isPopupPresented = true
+                        Color.blue.opacity(0)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                withAnimation(.linear(duration: 0.3)){
+                                    isPopupPresented = true
+                                }
                             }
-                        }
                         //배경(서서히 등장하는 애니메이션)
                         if isPopupPresented{
                             Color.init(hex: 0x2F2727, alpha: 0.55)

@@ -50,21 +50,16 @@ struct Popup<Content: View>: View {
                 }
                 
                 if isLastPopup {
-                    Button(action: {
-                        withAnimation{
-                            isPresented = false
-                            firstParent = false
+                    
+                    Color.blue.opacity(0)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            withAnimation{
+                                isPresented = false
+                                firstParent = false
+                            }
+                            data.showingBook = false
                         }
-                        data.showingBook = false
-                    }, label: {
-                        Text("Close")
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 10)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                    })
-                    .position(x:500,y:300)
                 }
             }
             .animation(.default)
