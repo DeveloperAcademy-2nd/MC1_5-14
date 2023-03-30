@@ -18,7 +18,7 @@ func makeOpacityView(hex: UInt, opacity: Double) -> some View {
 func makeItemView(itemNum: Int, width: CGFloat, height: CGFloat, data: Data ) -> some View {
   let items = ["Item_PostIt","Item_Dotjari","Item_Mask","Item_AppleFourCut"]
   NavigationView {
-    NavigationLink(destination: makeEpisodeView(epNum: itemNum, data: data)) {
+    NavigationLink(destination: makeEpisodeView(epNum: itemNum, data: data).navigationBarBackButtonHidden(true)) {
       ZStack {
         Image("ClubRoom")
           .resizable()
@@ -34,9 +34,9 @@ func makeItemView(itemNum: Int, width: CGFloat, height: CGFloat, data: Data ) ->
             .frame(width: 365, height: 280)
             .frame(maxHeight: .infinity, alignment: .top)
         }
-      }.navigationBarBackButtonHidden(false)
+      }
     }
-  }
+  }.navigationBarBackButtonHidden(true)
 }
 
 @ViewBuilder
