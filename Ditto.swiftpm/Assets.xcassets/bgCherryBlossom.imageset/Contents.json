@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Ditto@1x.png",
+      "filename" : "bgCherryBlossom@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Ditto@2x.png",
+      "filename" : "bgCherryBlossom@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Ditto@3x.png",
+      "filename" : "bgCherryBlossom@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
