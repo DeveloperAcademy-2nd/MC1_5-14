@@ -9,39 +9,56 @@ import SwiftUI
 
 struct Scene01_ClubRoom_Main: View {
     var body: some View {
-      ZStack {
-        Image("ClubRoom")
-          .resizable()
-          .edgesIgnoringSafeArea(.all)
-        HStack {
+      NavigationView {
+        ZStack {
+          Image("ClubRoom")
+            .resizable()
+            .edgesIgnoringSafeArea(.all)
+          HStack {
             VStack {
-              SelectingPointingView()
-                .frame(maxHeight: .infinity, alignment: .bottom)
-                .onTapGesture {
-                  
-                }
+              NavigationLink(destination: makeItemView(item: "AppleFourCut", width: 274, height: 197)
+//                .navigationBarBackButtonHidden(true)
+              ) {
+                SelectingPointingView()
+                  .frame(maxHeight: .infinity, alignment: .bottom)
+              }
               Spacer().frame(height: 240)
             }.frame(maxWidth: .infinity, alignment: .center)
             VStack {
-              SelectingPointingView()
-                .frame(maxHeight: .infinity, alignment: .bottom)
+              NavigationLink(destination: { NavigationLink(destination: makeEpisodeView(title: "ep1. Once apon a time")){
+                makeItemView(item: "AppleFourCut", width: 274, height: 197) }
+                                                           }
+//                .navigationBarBackButtonHidden(true)
+              ) {
+                SelectingPointingView()
+                  .frame(maxHeight: .infinity, alignment: .bottom)
+              }
               Spacer().frame(height: 135)
             }.frame(maxWidth: .infinity, alignment: .center)
-          HStack {
-            VStack {
-              SelectingPointingView()
-                .frame(maxHeight: .infinity, alignment: .bottomLeading)
-              Spacer().frame(height: 120)
-            }
-            Spacer().frame(width: 80)
-            VStack {
-              SelectingPointingView()
-                .frame(maxHeight: .infinity, alignment: .bottom)
-              Spacer().frame(height: 265)
-            }
-          }.frame(maxWidth: .infinity, alignment: .center)
-          VStack {
+            HStack {
+              VStack {
+                NavigationLink(destination: makeItemView(item: "AppleFourCut", width: 274, height: 197)
+//                  .navigationBarBackButtonHidden(true)
+                ) {
+                  SelectingPointingView()
+                    .frame(maxHeight: .infinity, alignment: .bottomLeading)
+                }
+                Spacer().frame(height: 120)
+              }
+              Spacer().frame(width: 80)
+              VStack {
+                NavigationLink(destination: makeItemView(item: "AppleFourCut", width: 274, height: 197)
+//                  .navigationBarBackButtonHidden(true)
+                ) {
+                  SelectingPointingView()
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                }
+                Spacer().frame(height: 265)
+              }
             }.frame(maxWidth: .infinity, alignment: .center)
+            VStack {
+            }.frame(maxWidth: .infinity, alignment: .center)
+          }
         }
       }
     }
