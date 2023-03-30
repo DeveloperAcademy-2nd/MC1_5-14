@@ -1,6 +1,6 @@
 //
 //  Scene02_Hallway.swift
-//  
+//
 //
 //  Created by 박의서 on 2023/03/31.
 //
