@@ -10,6 +10,7 @@ import SwiftUI
 struct Scene01_ClubRoom_Main: View { // 동그라미 순서: 2, 0, 1, 3
   @State var itemScreenVisiblities: [Bool] = [false, false, false, false]
   @EnvironmentObject var data: Data
+  @State var opacity: CGFloat = 1
   @State var screenNum: Int = 0
   var body: some View {
     NavigationView {
@@ -112,9 +113,11 @@ struct Scene01_ClubRoom_Main: View { // 동그라미 순서: 2, 0, 1, 3
           VStack {
           }.frame(maxWidth: .infinity, alignment: .center)
         }
+        
         makeItemView(itemNum: screenNum, width: 274, height: 197, data: data)
           .opacity(itemScreenVisiblities[screenNum] ? 1 : 0)
           .environmentObject(data)
+//          .opacity(data.itemViewIsHidden ? 0 : 1)
       }
     }
   }

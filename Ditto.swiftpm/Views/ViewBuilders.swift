@@ -17,26 +17,50 @@ func makeOpacityView(hex: UInt, opacity: Double) -> some View {
 @ViewBuilder
 func makeItemView(itemNum: Int, width: CGFloat, height: CGFloat, data: Data ) -> some View {
   let items = ["Item_PostIt","Item_Dotjari","Item_Mask","Item_AppleFourCut"]
+  let images = ["수많은 포스트잇 더미", "돗자리", "마스크", "애플네컷"]
+  let epImages = ["부제2", "부제3", "부제1", "부제4"]
+  var isVisible: Bool = false
   NavigationView {
-    NavigationLink(destination: makeEpisodeView(epNum: itemNum, data: data).navigationBarBackButtonHidden(true)) {
-      ZStack {
-        Image("ClubRoom")
-          .resizable()
-          .edgesIgnoringSafeArea(.all)
-        VStack {
-          Spacer().frame(height: 141)
-          makeOpacityView(hex: 0x433A3A, opacity: 0.85)
+    //    NavigationLink(destination: makeEpisodeView(epNum: itemNum, data: data).navigationBarBackButtonHidden(true)) {
+    ZStack {
+      //        Image("ClubRoom")
+      Image(images[itemNum])
+        .resizable()
+        .edgesIgnoringSafeArea(.all)
+        .onTapGesture {
+          isVisible.toggle()
         }
-        VStack {
-          Spacer().frame(height: 30)
-          Image(items[itemNum])
+      NavigationLink(destination: {
+        switch(itemNum) {
+        case 1:
+          Scene04_SkyView().navigationBarBackButtonHidden(true)
+        case 2:
+          Scene02_Hallway().navigationBarBackButtonHidden(true)
+        case 3:
+          Scene05_NightOcean().navigationBarBackButtonHidden(true)
+            .environmentObject(data)
+        default: // 0
+          Scene03_ClassRoom().navigationBarBackButtonHidden(true)
+        }}) {
+          Image(epImages[itemNum])
             .resizable()
-            .frame(width: 365, height: 280)
-            .frame(maxHeight: .infinity, alignment: .top)
+            .ignoresSafeArea(.all)
+            .opacity(isVisible ? 1 : 0)
+          //        VStack {
+          //          Spacer().frame(height: 141)
+          //          makeOpacityView(hex: 0x433A3A, opacity: 0.85)
+          //        }
+          //        VStack {
+          //          Spacer().frame(height: 30)
+          //          Image(items[itemNum])
+          //            .resizable()
+          //            .frame(width: 365, height: 280)
+          //            .frame(maxHeight: .infinity, alignment: .top)
+          //        }
         }
-      }
     }
-  }.navigationBarBackButtonHidden(true)
+    //  }.navigationBarBackButtonHidden(true)
+  }
 }
 
 @ViewBuilder

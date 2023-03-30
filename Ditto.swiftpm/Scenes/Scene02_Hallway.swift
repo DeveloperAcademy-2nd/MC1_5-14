@@ -8,22 +8,30 @@
 import SwiftUI
 
 struct Scene02_Hallway: View {
+  @EnvironmentObject var data: Data
   var body: some View {
-    ZStack {
+    NavigationView {
+      ZStack {
         Image("Background_ep1")
           .resizable()
           .ignoresSafeArea(.all)
-      VStack {
-        HStack {
-          Spacer().frame(width: 600)
-          Button(action: {}, label: {
-            Image("Button_Hallway")
-              .resizable()
-              .frame(width: 36, height: 36)
-              .frame(maxHeight: .infinity, alignment: .bottomTrailing)
-          })
+        VStack {
+          HStack {
+            Spacer().frame(width: 600)
+            Button(action: {
+            }, label: {
+              NavigationLink(destination: Scene01_ClubRoom_Main()
+                .environmentObject(data)
+                .navigationBarBackButtonHidden(true)) {
+                Image("Button_Hallway")
+                  .resizable()
+                  .frame(width: 36, height: 36)
+                  .frame(maxHeight: .infinity, alignment: .bottomTrailing)
+              }
+            })
+          }
+          Spacer().frame(height: 17)
         }
-        Spacer().frame(height: 17)
       }
     }
   }
