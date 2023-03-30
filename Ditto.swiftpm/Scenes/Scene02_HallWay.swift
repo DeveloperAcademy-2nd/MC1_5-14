@@ -32,7 +32,9 @@ struct Scene02_Hallway: View {
           }
           Spacer().frame(height: 17)
         }
-      }
+      }.onAppear(perform:{
+          data.showingBook = true
+      })
     }
   }
 }
