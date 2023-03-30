@@ -18,13 +18,22 @@ struct Scene00_Intro: View {
           .environmentObject(Data())
           .navigationBarBackButtonHidden(true)) {
           VStack {
-            Text("START")
-              .padding(.horizontal, 34)
-              .padding(.vertical, 14)
-              .foregroundColor(.white)
-              .background(Color.init(hex: 0x8DADAB, alpha: 0.7))
-              .cornerRadius(90)
-              .frame(maxHeight: .infinity, alignment: .bottom)
+            ZStack {
+              Text("        ")
+                .padding(.horizontal, 34)
+                .padding(.vertical, 14)
+                .foregroundColor(.white)
+                .background(Color.init(hex: 0x8DADAB, alpha: 0.7))
+                .cornerRadius(90)
+                .frame(maxHeight: .infinity, alignment: .bottom)
+              VStack {
+                Image("START")
+                  .resizable()
+                  .frame(width: 53, height: 19)
+                  .frame(maxHeight: .infinity, alignment: .bottom)
+                Spacer().frame(height: 15)
+              }
+            }
             Spacer().frame(height: 33)
           }
         }
