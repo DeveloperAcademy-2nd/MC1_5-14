@@ -12,6 +12,7 @@ struct Scene01_ClubRoom: View {
       ZStack {
         Image("ClubRoom")
           .resizable()
+          .aspectRatio(1, contentMode: .fill)
           .edgesIgnoringSafeArea(.all)
         VStack {
           Spacer().frame(height: 162)
