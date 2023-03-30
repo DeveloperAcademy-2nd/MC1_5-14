@@ -23,7 +23,7 @@ struct AnimatedImagesView: View {
             picture
                 .offset(x:-45,y:42)
                 .opacity(1)
-                .animation(.easeIn(duration: 0.5))
+                .animation(.easeIn(duration: 0.5).delay(0.5))
             VStack {
                 ForEach(dialogs.indices) { index in
                     dialogs[index]

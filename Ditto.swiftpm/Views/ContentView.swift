@@ -17,23 +17,18 @@ struct ContentView: View {
                 }
                 //배경(서서히 등장하는 애니메이션)
                 if isPopupPresented{
-                    Color.init(hex: 0x2F2727, opacity: 0.55)
+                    Color.init(hex: 0x2F2727, alpha: 0.55)
                         .ignoresSafeArea()
-                        .overlay(
-                            Text("Hello, World!")
-                                .foregroundColor(.white)
-                        )
                 }
                 
                 Popup(isPresented: $isPopupPresented,
                       hasSubPupup: true,
                       isFirstPopup: true) {
                     ZStack {
-                        
                         Image("book")
                             .resizable()
-                            .frame(width: geometry.size.width*0.7,
-                                   height:geometry.size.height*0.7)
+                            .frame(width: geometry.size.width*0.75,
+                                   height:geometry.size.height*0.75)
                             .offset(y:30)
                             .aspectRatio(1, contentMode: .fit)
                             .onAppear{
@@ -56,16 +51,5 @@ struct ContentView: View {
                       .edgesIgnoringSafeArea(.all)
             }
         }
-    }
-}
-
-
-extension Color {
-    init(hex: Int, opacity: Double = 1.0) {
-        let red = Double((hex >> 16) & 0xff) / 255
-        let green = Double((hex >> 8) & 0xff) / 255
-        let blue = Double((hex >> 0) & 0xff) / 255
-
-        self.init(.sRGB, red: red, green: green, blue: blue, opacity: opacity)
     }
 }
