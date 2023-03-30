@@ -17,23 +17,28 @@ struct Scene01_ClubRoom_Main: View {
             VStack {
               SelectingPointingView()
                 .frame(maxHeight: .infinity, alignment: .bottom)
-              Spacer().frame(height: 225)
-            }
+              Spacer().frame(height: 240)
+            }.frame(maxWidth: .infinity, alignment: .center)
             VStack {
               SelectingPointingView()
                 .frame(maxHeight: .infinity, alignment: .bottom)
-              Spacer().frame(height: 112)
+              Spacer().frame(height: 135)
+            }.frame(maxWidth: .infinity, alignment: .center)
+          HStack {
+            VStack {
+              SelectingPointingView()
+                .frame(maxHeight: .infinity, alignment: .bottomLeading)
+              Spacer().frame(height: 120)
             }
+            Spacer().frame(width: 80)
             VStack {
               SelectingPointingView()
                 .frame(maxHeight: .infinity, alignment: .bottom)
-              Spacer().frame(height: 225)
+              Spacer().frame(height: 265)
             }
-            VStack {
-              SelectingPointingView()
-                .frame(maxHeight: .infinity, alignment: .bottom)
-              Spacer().frame(height: 112)
-            }
+          }.frame(maxWidth: .infinity, alignment: .center)
+          VStack {
+            }.frame(maxWidth: .infinity, alignment: .center)
         }
       }
     }
