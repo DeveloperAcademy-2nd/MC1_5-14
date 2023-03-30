@@ -8,5 +8,5 @@
 import SwiftUI
 
 struct EpisodeStage: EnvironmentKey {
-  static let defaultValue: Int = 1
+  static var defaultValue: Int = 1
 }

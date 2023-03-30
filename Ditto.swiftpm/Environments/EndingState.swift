@@ -8,5 +8,5 @@
 import SwiftUI
 
 struct EndingState: EnvironmentKey {
-  static let defaultValue: Bool = false
+  static var defaultValue: Bool = false
 }

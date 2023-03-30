@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Scene01_ClubRoom_Main: View {
+  @Environment(\.endingState) var endingState: Bool
     var body: some View {
       NavigationView {
         ZStack {
