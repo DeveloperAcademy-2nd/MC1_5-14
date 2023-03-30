@@ -1,60 +1,75 @@
 //
-//  SwiftUIView.swift
-//  
+//  PopupView.swift
 //
-//  Created by Jun on 2023/03/29.
+//
+//  Created by Jun on 2023/03/30.
 //
 
 import SwiftUI
 
-struct PopupView: View {
-    @Binding var isHiding: Bool
-    let config: SheetManager.Config
-    let didClose: () -> Void
+struct Popup<Content: View>: View {
+    let content: Content
+    @Binding var isPresented: Bool
+    let hasSubPupup: Bool
+    let isFirstPopup: Bool
+    let isLastPopup: Bool
+    @Binding var firstParent: Bool
+    
+    init(isPresented: Binding<Bool>, hasSubPupup: Bool = false, isFirstPopup: Bool = false, isLastPopup: Bool = false, firstParent: Binding<Bool>, @ViewBuilder content: () -> Content) {
+        self.content = content()
+        self._isPresented = isPresented
+        self.hasSubPupup = hasSubPupup
+        self.isFirstPopup = isFirstPopup
+        self.isLastPopup = isLastPopup
+        self._firstParent = firstParent
+    }
+    
+    init(isPresented: Binding<Bool>, hasSubPupup: Bool = false, isFirstPopup: Bool = false, isLastPopup: Bool = false, @ViewBuilder content: () -> Content) {
+        
+        self.content = content()
+        self._isPresented = isPresented
+        self.hasSubPupup = hasSubPupup
+        self.isFirstPopup = isFirstPopup
+        self.isLastPopup = isLastPopup
+        self._firstParent = isPresented
+    }
+
     var body: some View {
-        VStack(spacing: .zero) {
-            content
-            close
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.horizontal, 24)
-        .padding(.vertical, 40)
-        .multilineTextAlignment(.center)
-        .background(background)
-    }
-}
-
-
-private extension PopupView {
-    
-    var close: some View {
-        Button {
-            withAnimation {
-                isHiding.toggle()
+        if isPresented {
+            ZStack {
+                VStack {
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        content
+                        Spacer()
+                    }
+                    Spacer()
+                }
+                
+                if isLastPopup {
+                    Button(action: {
+                        withAnimation{
+                            isPresented = false
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15){
+                                firstParent = false
+                            }
+                            
+                        }
+                    }, label: {
+                        Text("Close")
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 10)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    })
+                    .position(x:500,y:300)
+                }
             }
-            didClose()
-        } label: {
-            Image(systemName: "xmark")
-                .symbolVariant(.circle.fill)
-                .font(
-                    .system(size: 35,
-                            weight: .bold,
-                            design: .rounded)
-            )
-            .padding(8)
+            .animation(.default)
+            .edgesIgnoringSafeArea(.all)
         }
-    }
-    
-    var background: some View {
-        Image(config.background)
-            .resizable()
-            .frame(width: 800, height: 700)
-            .scaledToFill()
-    }
-    
-    var content: some View {
-        Text(config.content)
-            .font(.callout)
-            .foregroundColor(.black.opacity(0.8))
     }
 }

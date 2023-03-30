@@ -1,48 +1,71 @@
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
-    
-    
-    @State private var isHiding = true
-    @EnvironmentObject var sheetManager: SheetManager
-    
+    @State var isPopupPresented = false
+    @State var isSubPopupPresented = false
     
     var body: some View {
-        ZStack{
-            Scene00_Intro()
-            VStack{
-                Button(action: {
-                    withAnimation {
-                        isHiding.toggle()
+        GeometryReader { geometry in
+            ZStack {
+                // 기본 뷰
+                Scene00_Intro()
+                Button("Show Popup") {
+                    withAnimation(.linear(duration: 0.3)){
+                        isPopupPresented = true
                     }
-                }, label: {
-                    Text("리빈나와라")
-                })
-            }
-            PopupView(isHiding: $isHiding, config: .init(content: "리빈2",background:"book"), didClose: {})
-                .isHidden(isHiding)
-                .transition(AnyTransition.scale.animation(.default))
+                }
+                //배경(서서히 등장하는 애니메이션)
+                if isPopupPresented{
+                    Color.init(hex: 0x2F2727, opacity: 0.55)
+                        .ignoresSafeArea()
+                        .overlay(
+                            Text("Hello, World!")
+                                .foregroundColor(.white)
+                        )
+                }
                 
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environmentObject(SheetManager())
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
-
-extension View {
-    @ViewBuilder func isHidden(_ hidden: Bool, remove: Bool = false) -> some View {
-        if hidden {
-            if !remove {
-                self.hidden()
+                Popup(isPresented: $isPopupPresented,
+                      hasSubPupup: true,
+                      isFirstPopup: true) {
+                    ZStack {
+                        
+                        Image("book")
+                            .resizable()
+                            .frame(width: geometry.size.width*0.7,
+                                   height:geometry.size.height*0.7)
+                            .offset(y:30)
+                            .aspectRatio(1, contentMode: .fit)
+                            .onAppear{
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                                    isSubPopupPresented = true
+                                }
+                            }
+                        
+                        Popup(isPresented: $isSubPopupPresented,
+                              isLastPopup: true,
+                              firstParent:$isPopupPresented
+                        ) {
+                            AnimatedImagesView()
+                        }
+                        .edgesIgnoringSafeArea(.all)
+                    }
+                }
+                      .transition(.move(edge: .bottom))
+                      .animation(.easeOut(duration: 0.5))
+                      .edgesIgnoringSafeArea(.all)
             }
-        } else {
-            self
         }
+    }
+}
+
+
+extension Color {
+    init(hex: Int, opacity: Double = 1.0) {
+        let red = Double((hex >> 16) & 0xff) / 255
+        let green = Double((hex >> 8) & 0xff) / 255
+        let blue = Double((hex >> 0) & 0xff) / 255
+
+        self.init(.sRGB, red: red, green: green, blue: blue, opacity: opacity)
     }
 }
