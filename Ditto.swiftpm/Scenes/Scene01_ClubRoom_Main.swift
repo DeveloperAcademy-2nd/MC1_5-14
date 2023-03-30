@@ -12,6 +12,11 @@ struct Scene01_ClubRoom_Main: View { // 동그라미 순서: 2, 0, 1, 3
   @EnvironmentObject var data: Data
   @State var opacity: CGFloat = 1
   @State var screenNum: Int = 0
+  
+  // Ending
+  @State var isEnding: Bool = false
+  @State var isManitto: Bool = false
+  
   var body: some View {
     NavigationView {
       ZStack {
@@ -111,6 +116,81 @@ struct Scene01_ClubRoom_Main: View { // 동그라미 순서: 2, 0, 1, 3
             }
           }.frame(maxWidth: .infinity, alignment: .center)
           VStack {
+                Button(action: {
+                  //            data.itemViewIsHidden = true
+                }, label: {
+                  NavigationLink(destination:
+                                  ZStack {
+                    ZStack { // 벚꽃 보이는 상태
+                      ZStack{
+                        Image("Background_Blossom").resizable().ignoresSafeArea(.all)
+                        
+                        // Button Starts
+                        VStack {
+                          HStack {
+                            Spacer().frame(width: 600)
+                            Button(action: {
+                              isEnding = true
+                            }, label: {
+                              Image("Button_Hallway")
+                                .resizable()
+                                .frame(width: 36, height: 36)
+                                .frame(maxHeight: .infinity, alignment: .bottomTrailing)
+                            })
+                          }
+                          Spacer().frame(height: 17)
+                        }
+                        // Button ends
+                        
+                      }
+                      
+                      if isEnding {
+                        ZStack{
+                          Image("Background_Ending").resizable().ignoresSafeArea(.all)
+                          // Button Starts
+                          VStack {
+                            HStack {
+                              Spacer().frame(width: 600)
+                              Button(action: {
+                                isManitto = true
+                              }, label: {
+                                Image("Button_Hallway")
+                                  .resizable()
+                                  .frame(width: 36, height: 36)
+                                  .frame(maxHeight: .infinity, alignment: .bottomTrailing)
+                              })
+                            }
+                            Spacer().frame(height: 17)
+                          }
+                          // Button ends
+                        }
+                      }
+                      
+                      
+                      
+                      if isManitto {
+                        ZStack{
+                          Image("RollingPaper").resizable().ignoresSafeArea(.all)
+                        }.transition(.opacity.animation(.easeIn(duration: 3.0)))
+                      }
+                      
+                      
+                      
+                    }
+                    
+                    
+                    
+                    
+                  }
+                    .environmentObject(data)
+                    .navigationBarBackButtonHidden(true)) {
+                      Image("Button_ClassRoom")
+                        .resizable()
+                        .frame(width: 36, height: 36)
+                        .frame(maxHeight: .infinity, alignment: .bottomTrailing)
+                    }
+                })
+              Spacer().frame(height: 17)
           }.frame(maxWidth: .infinity, alignment: .center)
         }
         
