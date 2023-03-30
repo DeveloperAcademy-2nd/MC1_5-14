@@ -9,14 +9,14 @@ import SwiftUI
 
 struct Scene01_ClubRoom_Intro: View {
   @State var transitionView: Bool = false
-    var body: some View {
-      // 터치 이벤트 -> transitionView.toggle()
+  var body: some View {
+    NavigationView {
       ZStack {
         Image("ClubRoom")
           .resizable()
           .edgesIgnoringSafeArea(.all)
           .onTapGesture {
-            transitionView.toggle()
+            transitionView = true
           }
         ZStack {
           VStack {
@@ -24,15 +24,17 @@ struct Scene01_ClubRoom_Intro: View {
             makeOpacityView(hex: 0x322725, opacity: 0.85)
             Spacer().frame(height: 14)
           }
-          HStack {
-            Image("IntroNote")
-              .frame(maxWidth: .infinity, alignment: .center)
-            VStack {
-              Spacer().frame(height: 65)
-              Text("정보 설명")
-                .foregroundColor(.white)
-                .font(.system(size: 20))
-                .frame(maxWidth: .infinity, maxHeight: .infinity , alignment: .top)
+          NavigationLink(destination: Scene01_ClubRoom_Main().navigationBarBackButtonHidden(true)) {
+            HStack {
+              Image("IntroNote")
+                .frame(maxWidth: .infinity, alignment: .center)
+              VStack {
+                Spacer().frame(height: 65)
+                Text("정보 설명")
+                  .foregroundColor(.white)
+                  .font(.system(size: 20))
+                  .frame(maxWidth: .infinity, maxHeight: .infinity , alignment: .top)
+              }
             }
           }
         }
@@ -42,4 +44,5 @@ struct Scene01_ClubRoom_Intro: View {
         print("메인으로 네비게이션")
       }
     }
+  }
 }
