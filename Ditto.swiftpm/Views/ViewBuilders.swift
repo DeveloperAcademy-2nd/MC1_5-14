@@ -16,9 +16,9 @@ func makeOpacityView(hex: UInt, opacity: Double) -> some View {
 
 @ViewBuilder
 func makeItemView(itemNum: Int, width: CGFloat, height: CGFloat, data: Data ) -> some View {
-  let items = ["Item_PostIt","Item_Dotjari","Item_Mask","Item_AppleFourCut"]
-  let images = ["수많은 포스트잇 더미", "돗자리", "마스크", "애플네컷"]
-  let epImages = ["부제2", "부제3", "부제1", "부제4"]
+//  let items = ["Item_PostIt","Item_Dotjari","Item_Mask","Item_AppleFourCut"]
+  let images = ["Item_PostIt", "Item_Dotjari", "Item_Mask", "Item_FourCut"]
+  let epImages = ["EpTitle2", "EpTitle3", "EpTitle1", "EpTitle4"]
   var isVisible: Bool = false
   NavigationView {
     //    NavigationLink(destination: makeEpisodeView(epNum: itemNum, data: data).navigationBarBackButtonHidden(true)) {
