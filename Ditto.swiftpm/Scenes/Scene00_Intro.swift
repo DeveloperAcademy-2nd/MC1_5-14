@@ -14,7 +14,7 @@ struct Scene00_Intro: View {
         Image("Ditto")
           .resizable()
           .edgesIgnoringSafeArea(.all)
-        NavigationLink(destination: Scene01_ClubRoom_Intro()
+        NavigationLink(destination: Scene01_ClubRoom_Intro_Ending()
           .navigationBarBackButtonHidden(true)) {
           VStack {
             Text("START")

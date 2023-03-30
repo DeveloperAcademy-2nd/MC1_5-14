@@ -1,5 +1,5 @@
 //
-//  Scene01_ClubRoom_Intro.swift
+//  Scene01_ClubRoom_Intro_Ending.swift
 //  
 //
 //  Created by 박의서 on 2023/03/29.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Scene01_ClubRoom_Intro: View {
+struct Scene01_ClubRoom_Intro_Ending: View {
   @Environment(\.endingState) var endingState: Bool
   @State var transitionView: Bool = false
   var body: some View {
