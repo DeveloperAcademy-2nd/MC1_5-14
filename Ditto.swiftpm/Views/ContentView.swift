@@ -4,13 +4,14 @@ import Foundation
 struct ContentView: View {
     @State var isPopupPresented = false
     @State var isSubPopupPresented = false
+    @EnvironmentObject var data: Data
     
     var body: some View {
         GeometryReader { geometry in
-            NavigationView{
-                ZStack {
-                    // 기본 뷰
-                    SceneView()
+            ZStack {
+                // 기본 뷰
+                Scene00_Intro()
+                ZStack{
                     Button("Show Popup") {
                         withAnimation(.linear(duration: 0.3)){
                             isPopupPresented = true
@@ -28,8 +29,8 @@ struct ContentView: View {
                         ZStack {
                             Image("book")
                                 .resizable()
-                                .frame(width: geometry.size.width*0.75,
-                                       height:geometry.size.height*0.75)
+                                .frame(width: geometry.size.width * 0.7,
+                                       height:geometry.size.height * 0.7)
                                 .offset(y:30)
                                 .aspectRatio(1, contentMode: .fit)
                                 .onAppear{
@@ -42,8 +43,22 @@ struct ContentView: View {
                                   isLastPopup: true,
                                   firstParent:$isPopupPresented
                             ) {
-                                AnimatedImagesView(picture: "picture01", dialogs: ["dialog01", "dialog02", "dialog03"], positions: [[-45,42],[15,-10]]
-                                )
+                                if (data.presentEpisode == 0) {
+                                    AnimatedImagesView(picture: "picture01", dialogs: ["dialog01", "dialog02", "dialog03"], positions: [[-40,42],[15,30]]
+                                    )
+                                } else if (data.presentEpisode == 1) {
+                                    AnimatedImagesView(picture: "picture02", dialogs: ["dialog10", "dialog11", "dialog12"], positions: [[-40,42],[15,30]]
+                                    )
+                                } else if (data.presentEpisode == 2) {
+                                    AnimatedImagesView(picture: "picture03", dialogs: ["dialog20", "dialog21"], positions: [[-40,42],[15,30]]
+                                    )
+                                } else if (data.presentEpisode == 3) {
+                                    AnimatedImagesView(picture: "picture04", dialogs: ["dialog30", "dialog31"], positions: [[-40,42],[15,30]]
+                                    )
+                                } else if (data.presentEpisode == 4) {
+                                    AnimatedImagesView(picture: "picture05", dialogs: ["dialog40"], positions: [[-40,42],[15,30]]
+                                    )
+                                }
                             }
                             .edgesIgnoringSafeArea(.all)
                         }
@@ -53,6 +68,19 @@ struct ContentView: View {
                           .edgesIgnoringSafeArea(.all)
                 }
             }
+        }
+        
+    }
+}
+
+extension View {
+    @ViewBuilder func isHidden(_ hidden: Bool, remove: Bool = false) -> some View {
+        if hidden {
+            if !remove {
+                self.hidden()
+            }
+        } else {
+            self
         }
     }
 }

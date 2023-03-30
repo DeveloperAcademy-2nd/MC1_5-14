@@ -51,11 +51,7 @@ struct Popup<Content: View>: View {
                     Button(action: {
                         withAnimation{
                             isPresented = false
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15){
-                                firstParent = false
-                            }
-                            
+                            firstParent = false
                         }
                     }, label: {
                         Text("Close")
@@ -73,3 +69,4 @@ struct Popup<Content: View>: View {
         }
     }
 }
+

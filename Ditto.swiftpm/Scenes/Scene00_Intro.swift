@@ -15,7 +15,6 @@ struct Scene00_Intro: View {
           .resizable()
           .edgesIgnoringSafeArea(.all)
           NavigationLink(destination: Scene01_ClubRoom_Intro_Ending()
-            .environmentObject(Data())
             .navigationBarBackButtonHidden(true)) {
             VStack {
               ZStack {
