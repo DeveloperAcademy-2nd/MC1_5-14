@@ -11,6 +11,30 @@ struct Scene01_ClubRoom_Main: View {
     var body: some View {
       ZStack {
         Image("ClubRoom")
+          .resizable()
+          .edgesIgnoringSafeArea(.all)
+        HStack {
+            VStack {
+              SelectingPointingView()
+                .frame(maxHeight: .infinity, alignment: .bottom)
+              Spacer().frame(height: 225)
+            }
+            VStack {
+              SelectingPointingView()
+                .frame(maxHeight: .infinity, alignment: .bottom)
+              Spacer().frame(height: 112)
+            }
+            VStack {
+              SelectingPointingView()
+                .frame(maxHeight: .infinity, alignment: .bottom)
+              Spacer().frame(height: 225)
+            }
+            VStack {
+              SelectingPointingView()
+                .frame(maxHeight: .infinity, alignment: .bottom)
+              Spacer().frame(height: 112)
+            }
+        }
       }
     }
 }
