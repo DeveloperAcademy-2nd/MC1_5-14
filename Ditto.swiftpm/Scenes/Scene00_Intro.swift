@@ -14,29 +14,29 @@ struct Scene00_Intro: View {
         Image("Ditto")
           .resizable()
           .edgesIgnoringSafeArea(.all)
-        NavigationLink(destination: Scene01_ClubRoom_Intro_Ending()
-          .environmentObject(Data())
-          .navigationBarBackButtonHidden(true)) {
-          VStack {
-            ZStack {
-              Text("        ")
-                .padding(.horizontal, 34)
-                .padding(.vertical, 14)
-                .foregroundColor(.white)
-                .background(Color.init(hex: 0x8DADAB, alpha: 0.7))
-                .cornerRadius(90)
-                .frame(maxHeight: .infinity, alignment: .bottom)
-              VStack {
-                Image("START")
-                  .resizable()
-                  .frame(width: 53, height: 19)
+          NavigationLink(destination: Scene01_ClubRoom_Intro_Ending()
+            .environmentObject(Data())
+            .navigationBarBackButtonHidden(true)) {
+            VStack {
+              ZStack {
+                Text("        ")
+                  .padding(.horizontal, 34)
+                  .padding(.vertical, 14)
+                  .foregroundColor(.white)
+                  .background(Color.init(hex: 0x8DADAB, alpha: 0.7))
+                  .cornerRadius(90)
                   .frame(maxHeight: .infinity, alignment: .bottom)
-                Spacer().frame(height: 15)
+                VStack {
+                  Image("START")
+                    .resizable()
+                    .frame(width: 53, height: 19)
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                  Spacer().frame(height: 15)
+                }
               }
+              Spacer().frame(height: 33)
             }
-            Spacer().frame(height: 33)
           }
-        }
       }
     }
     }
