@@ -44,9 +44,9 @@ struct Scene01_ClubRoom_Intro_Ending: View {
                   .frame(maxWidth: .infinity, alignment: .center)
                 VStack {
                   Spacer().frame(height: 65)
-                  Text("정보 설명")
-                    .foregroundColor(.white)
-                    .font(.system(size: 20))
+                  Image("IntroNoteText")
+                    .resizable()
+                    .frame(width: 271, height: 232)
                     .frame(maxWidth: .infinity, maxHeight: .infinity , alignment: .top)
                 }
               }

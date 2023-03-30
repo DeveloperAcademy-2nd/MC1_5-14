@@ -43,7 +43,7 @@ func makeItemView(itemNum: Int, width: CGFloat, height: CGFloat, data: Data ) ->
 func makeEpisodeView(epNum: Int, data: Data) -> some View {
   let titles = ["마스크", "포스트잇", "애플네컷", "야호"]
   NavigationView() {
-    NavigationLink(destination: Scene01_ClubRoom_Main().environmentObject(data)) {
+    NavigationLink(destination: Scene01_ClubRoom_Main()) {
       ZStack {
         Image("ClubRoom")
           .resizable()
