@@ -11,7 +11,7 @@ struct StartButton: View {
   var body: some View {
     VStack {
       Button {
-      } label: {
+      } label:{
         Text("START")
                 .padding(.horizontal, 34)
                 .padding(.vertical, 14)
