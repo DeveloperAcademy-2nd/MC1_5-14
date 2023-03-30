@@ -23,9 +23,14 @@ struct Scene01_ClubRoom_Intro: View {
           }
           HStack {
             Image("IntroNote")
-            Text("정보 설명")
-              .foregroundColor(.white)
-              .font(.system(size: 20))
+              .frame(maxWidth: .infinity, alignment: .center)
+            VStack {
+              Spacer().frame(height: 65)
+              Text("정보 설명")
+                .foregroundColor(.white)
+                .font(.system(size: 20))
+                .frame(maxWidth: .infinity, maxHeight: .infinity , alignment: .top)
+            }
           }
         }
         .opacity(transitionView ? 1.0 : 0.0)
