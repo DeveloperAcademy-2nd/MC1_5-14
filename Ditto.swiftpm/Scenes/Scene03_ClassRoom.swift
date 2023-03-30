@@ -9,8 +9,22 @@ import SwiftUI
 
 struct Scene03_ClassRoom: View {
   var body: some View {
-    Image("Background_ep2")
-      .resizable()
-      .ignoresSafeArea(.all)
+    ZStack {
+        Image("Background_ep2")
+          .resizable()
+          .ignoresSafeArea(.all)
+      VStack {
+        HStack {
+          Spacer().frame(width: 600)
+          Button(action: {}, label: {
+            Image("Button_ClassRoom")
+              .resizable()
+              .frame(width: 36, height: 36)
+              .frame(maxHeight: .infinity, alignment: .bottomTrailing)
+          })
+        }
+        Spacer().frame(height: 17)
+      }
+    }
   }
 }

@@ -45,13 +45,13 @@ func makeEpisodeView(epNum: Int, data: Data) -> some View {
   NavigationView() {
     NavigationLink(destination: { switch(epNum) {
     case 1:
-      Scene03_ClassRoom().navigationBarBackButtonHidden(true)
-    case 2:
       Scene04_SkyView().navigationBarBackButtonHidden(true)
+    case 2:
+      Scene02_Hallway().navigationBarBackButtonHidden(true)
     case 3:
       Scene05_NightOcean().navigationBarBackButtonHidden(true)
-    default:
-      Scene02_Hallway().navigationBarBackButtonHidden(true)
+    default: // 0
+      Scene03_ClassRoom().navigationBarBackButtonHidden(true)
     }
     }) {
       ZStack {
