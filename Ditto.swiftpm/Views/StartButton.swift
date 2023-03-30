@@ -20,7 +20,7 @@ struct StartButton: View {
                 .cornerRadius(90)
             }
             .frame(maxHeight: .infinity, alignment: .bottom)
-        Spacer().frame(height: 67)
+        Spacer().frame(height: 33)
       }
     }
 }
