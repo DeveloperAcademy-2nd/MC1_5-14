@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct StartButton: View {
-    var body: some View {
-      VStack {
-        Button {
-        } label: {
-          Text("START")
-            .padding(.horizontal, 34)
-            .padding(.vertical, 14)
-            .foregroundColor(.white)
-            .background(Color.init(hex: 0x8DADAB, alpha: 0.7))
-            .cornerRadius(90)
-        }
-        .frame(maxHeight: .infinity, alignment: .bottom)
+  var body: some View {
+    VStack {
+      Button {
+      } label: {
+        Text("START")
+                .padding(.horizontal, 34)
+                .padding(.vertical, 14)
+                .foregroundColor(.white)
+                .background(Color.init(hex: 0x8DADAB, alpha: 0.7))
+                .cornerRadius(90)
+            }
+            .frame(maxHeight: .infinity, alignment: .bottom)
         Spacer().frame(height: 67)
       }
     }
